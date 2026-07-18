@@ -8,12 +8,16 @@ def run():
     board = Board()
     board.display()
 
-    print('\n', "Player 1's turn:", '\n')
-    player1.get_move(board)
+    print('\n')
+    print("Player 1's turn:", '\n')
+    column = int(input('Enter a number: '))
+    player1.get_move(board, column)
     board.display()
 
-    print('\n', "Player 2's turn:", '\n')
-    player2.get_move(board)
+    print('\n')
+    print("Player 2's turn:", '\n')
+    column = int(input('Enter a number: '))
+    player2.get_move(board, column)
     board.display()
 
 
