@@ -13,9 +13,14 @@ class Player1:
         pass
     
     def get_move(self, board, inputNumber):
+        if board.grid[0][inputNumber] != 0:
+            print("Column is full, please choose another column.")
+            inputNumber = int(input('Enter a number: '))
+            return self.get_move(board, inputNumber)
         rowPos = -1
         while board.grid[rowPos][inputNumber] != 0:
             rowPos -= 1
+        
 
         board.grid[rowPos][inputNumber] = 1
         return board
@@ -25,9 +30,14 @@ class Player2:
         pass
 
     def get_move(self, board, inputNumber):
+        if board.grid[0][inputNumber] != 0:
+            print("Column is full, please choose another column.")
+            inputNumber = int(input('Enter a number: '))
+            return self.get_move(board, inputNumber)
         rowPos = -1
         while board.grid[rowPos][inputNumber] != 0:
             rowPos -= 1
+        
 
         board.grid[rowPos][inputNumber] = 2
         return board

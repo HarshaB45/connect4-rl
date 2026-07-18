@@ -20,4 +20,43 @@ def run():
     player2.get_move(board, column)
     board.display()
 
+    print('\n')
+    print("Player 1's turn:", '\n')
+    column = int(input('Enter a number: '))
+    player1.get_move(board, column)
+    board.display()
+
+    print('\n')
+    print("Player 2's turn:", '\n')
+    column = int(input('Enter a number: '))
+    player2.get_move(board, column)
+    board.display()
+
+    print('\n')
+    print("Player 1's turn:", '\n')
+    column = int(input('Enter a number: '))
+    player1.get_move(board, column)
+    board.display()
+
+    print('\n')
+    print("Player 2's turn:", '\n')
+    column = int(input('Enter a number: '))
+    player2.get_move(board, column)
+    board.display()
+
+    print('\n')
+    print("Player 1's turn:", '\n')
+    column = int(input('Enter a number: '))
+    player1.get_move(board, column)
+    board.display()
+
+    print('\n')
+    print("Player 2's turn:", '\n')
+    column = int(input('Enter a number: '))
+    player2.get_move(board, column)
+    board.display()
+
+
+    
+
 
