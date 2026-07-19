@@ -41,3 +41,30 @@ class Player2:
 
         board.grid[rowPos][inputNumber] = 2
         return board
+    
+def win_condition(board, player):
+    # Check for horizontal win
+    for row in range(6):
+        for col in range(4):
+            if all(board.grid[row][col + i] == player for i in range(4)):
+                return True
+
+    # Check for vertical win
+    for row in range(3):
+        for col in range(7):
+            if all(board.grid[row + i][col] == player for i in range(4)):
+                return True
+
+    # Check for diagonal win (top-left to bottom-right)
+    for row in range(3):
+        for col in range(4):
+            if all(board.grid[row + i][col + i] == player for i in range(4)):
+                return True
+
+    # Check for diagonal win (top-right to bottom-left)
+    for row in range(3):
+        for col in range(3, 7):
+            if all(board.grid[row + i][col - i] == player for i in range(4)):
+                return True
+
+    return False
