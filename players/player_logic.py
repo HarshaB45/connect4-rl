@@ -3,45 +3,26 @@
 # initial algorithms for player 1 and 2 is to add 1 to a column, will refine with RL later
 
 import random
-from ui.board import Board
 
-board = Board()
 
-# this
-class Player1:
-    def __init__(self):
-        pass
-    
+class Player:
+    def __init__(self, player_number):
+        self.player_number = player_number
+
     def get_move(self, board, inputNumber):
-        if board.grid[0][inputNumber] != 0:
-            print("Column is full, please choose another column.")
+        while board.grid[0][inputNumber] != 0:
             inputNumber = int(input('Enter a number: '))
-            return self.get_move(board, inputNumber)
         rowPos = -1
         while board.grid[rowPos][inputNumber] != 0:
             rowPos -= 1
-        
 
-        board.grid[rowPos][inputNumber] = 1
+        board.grid[rowPos][inputNumber] = self.player_number
         return board
-    
-class Player2:
-    def __init__(self):
-        pass
 
-    def get_move(self, board, inputNumber):
-        if board.grid[0][inputNumber] != 0:
-            print("Column is full, please choose another column.")
-            inputNumber = int(input('Enter a number: '))
-            return self.get_move(board, inputNumber)
-        rowPos = -1
-        while board.grid[rowPos][inputNumber] != 0:
-            rowPos -= 1
-        
+    def algorithm(self, board):
+        valid_columns = [col for col in range(7) if board.grid[0][col] == 0]
+        return random.choice(valid_columns)
 
-        board.grid[rowPos][inputNumber] = 2
-        return board
-    
 def win_condition(board, player):
     # Check for horizontal win
     for row in range(6):
@@ -68,3 +49,6 @@ def win_condition(board, player):
                 return True
 
     return False
+
+def draw_condition(board):
+    return all(board.grid[0][col] != 0 for col in range(7))
